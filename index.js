@@ -1,28 +1,25 @@
-// Import required modules
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
-// Initialize the Express application
 const app = express();
-
-// Middleware to parse JSON request bodies
 app.use(bodyParser.json());
+app.use(cors());
+
+// Handle GET request for /activity/execute
+app.get('/activity/execute', (req, res) => {
+    res.json({ message: 'This endpoint is meant for POST requests. Please use POST instead.' });
+});
 
 // POST request handler for the /activity/execute endpoint
 app.post('/activity/execute', (req, res) => {
-    // Log the request body (optional, for debugging)
     console.log('Execute request received:', req.body);
-
-    // Respond with a success message
     res.json({ status: 'Executed successfully' });
 });
 
 // POST request handler for the /activity/save endpoint
 app.post('/activity/save', (req, res) => {
-    // Log the request body (optional, for debugging)
     console.log('Save request received:', req.body);
-
-    // Respond with a success message
     res.json({ status: 'Saved successfully' });
 });
 
