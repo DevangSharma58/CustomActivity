@@ -1,24 +1,21 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');
-
 const app = express();
-app.use(bodyParser.json());
-app.use(cors());
 
-// POST request handler for the /activity/execute endpoint
+// Use bodyParser middleware to parse JSON requests
+app.use(bodyParser.json());
+
+// Define the /activity/execute route
 app.post('/activity/execute', (req, res) => {
-    console.log('Execute request received:', req.body);
+    console.log('Execute Activity Called');
     res.json({ status: 'Executed successfully' });
 });
 
-// POST request handler for the /activity/save endpoint
+// Define other routes if needed (save, publish, validate, etc.)
 app.post('/activity/save', (req, res) => {
-    console.log('Save request received:', req.body);
-    res.json({ status: 'Saved successfully' });
+    res.json({ status: 'Save Successful' });
 });
 
-// Start the server on port 3000
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
