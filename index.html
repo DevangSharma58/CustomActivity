@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Activity</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f7f7f7;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      font-size: 24px;
+      color: #333;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 3px;
+      border: 1px solid #ddd;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Custom Activity</h1>
+    <p>Enter a value for this activity:</p>
+    <input type="text" id="activityInput" placeholder="Enter value here" />
+    <button onclick="save()">Save</button>
+  </div>
+
+  <script>
+    // Called when activity is loaded in Journey Builder
+    function initialize(data) {
+      // You can prepopulate input fields here if required
+      console.log("Activity initialized with data:", data);
+    }
+
+    // Save button action
+    function save() {
+      const value = document.getElementById("activityInput").value;
+      // Send data back to Journey Builder
+      const payload = {
+        value: value
+      };
+      postToJourneyBuilder(payload);
+    }
+
+    function postToJourneyBuilder(payload) {
+      // Post data back to Journey Builder
+      window.parent.postMessage({
+        "type": "save",
+        "data": payload
+      }, "*");
+    }
+  </script>
+</body>
+</html>
