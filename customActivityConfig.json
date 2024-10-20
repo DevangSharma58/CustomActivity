@@ -1,19 +1,35 @@
 {
-    "workflowApiVersion": "1.1",
-    "metaData": {
-       "icon": "jangle_1.png",
-       "category": "message"
-    },
-    "arguments": {
-       "execute": {
-          "url": "https://customactivity-pj3x.onrender.com/activity/execute",
-          "verb": "POST"
-       }
-    },
-    "configurationArguments": {
-       "save": {
-          "url": "https://customactivity-pj3x.onrender.com/activity/save"
-       }
-    }
- }
- 
+   "workflowApiVersion": "1.1",
+   "metaData": {
+      "icon": "https://your-icon-url.com/icon.png",
+      "category": "message"
+   },
+   "type": "REST",
+   "lang": {
+      "en-US": {
+         "name": "My Custom Activity",
+         "description": "This is a custom activity for journey builder."
+      }
+   },
+   "arguments": {
+      "execute": {
+         "inArguments": [],
+         "url": "https://customactivity-pj3x.onrender.com/activity/execute",
+         "verb": "POST",
+         "body": "",
+         "header": ""
+      }
+   },
+   "configurationArguments": {
+      "save": {
+         "url": "https://customactivity-pj3x.onrender.com/activity/save"
+      },
+      "publish": {
+         "url": "https://customactivity-pj3x.onrender.com/activity/publish"
+      },
+      "validate": {
+         "url": "https://customactivity-pj3x.onrender.com/activity/validate"
+      }
+   },
+   "outArguments": []
+}
