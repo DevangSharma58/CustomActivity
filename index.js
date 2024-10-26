@@ -23,6 +23,16 @@ app.post('/activity/save', (req, res) => {
     res.json({ status: 'Saved successfully' });
 });
 
+// Define POST route for /activity/publish
+app.post('/activity/publish', (req, res) => {
+    res.json({ status: 'Published successfully' });
+});
+
+// Define POST route for /activity/validate
+app.post('/activity/validate', (req, res) => {
+    res.json({ status: 'Validated successfully' });
+});
+
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
