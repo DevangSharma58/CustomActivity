@@ -60,11 +60,29 @@
     // Save button action
     function save() {
       const value = document.getElementById("activityInput").value;
-      // Send data back to Journey Builder
+      
+      // Create the payload to send to your server
       const payload = {
         value: value
       };
-      postToJourneyBuilder(payload);
+
+      // Send the data to your server
+      fetch('https://customactivity-pj3x.onrender.com/activity/save', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        // You can handle success, such as showing a message to the user
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        // You can handle errors, such as showing an error message to the user
+      });
     }
 
     function postToJourneyBuilder(payload) {
