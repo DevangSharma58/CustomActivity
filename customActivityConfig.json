@@ -22,13 +22,16 @@
    },
    "configurationArguments": {
       "save": {
-         "url": "https://customactivity-pj3x.onrender.com/activity/save"
+         "url": "https://customactivity-pj3x.onrender.com/activity/save",
+         "verb": "POST"
       },
       "publish": {
-         "url": "https://customactivity-pj3x.onrender.com/activity/publish"
+         "url": "https://customactivity-pj3x.onrender.com/activity/publish",
+         "verb": "POST"
       },
       "validate": {
-         "url": "https://customactivity-pj3x.onrender.com/activity/validate"
+         "url": "https://customactivity-pj3x.onrender.com/activity/validate",
+         "verb": "POST"
       }
    },
    "outArguments": []
