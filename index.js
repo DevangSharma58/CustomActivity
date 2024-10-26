@@ -1,9 +1,11 @@
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 
 // Initialize app
 const app = express();
+app.use(cors()); // Enable CORS
 app.use(bodyParser.json());
 
 // Serve static files (like index.html)
@@ -20,7 +22,9 @@ app.post('/activity/execute', (req, res) => {
 
 // Define POST route for /activity/save
 app.post('/activity/save', (req, res) => {
-    res.json({ status: 'Saved successfully' });
+    // Here you can handle the incoming data
+    console.log(req.body); // Log the received data
+    res.json({ status: 'Saved successfully', receivedValue: req.body.value });
 });
 
 // Define POST route for /activity/publish
@@ -38,3 +42,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
